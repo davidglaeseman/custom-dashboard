@@ -1,0 +1,96 @@
+.auth-container {
+  .relative {
+    position: relative;
+  }
+  max-width: 400px;
+  .bg-card {
+    background: rgb(0 0 0 / 0.5);
+    color: var(--color-white);
+    padding: 1rem;
+    border-radius: 1rem;
+    border-color: var(--color-theme-500);
+    display: block;
+    [data-slot="card-title"] {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    [data-slot="card-description"] {
+      color: var(--color-zinc-300);
+      margin-bottom: 0.5rem;
+    }
+    form {
+      [data-slot="button"] {
+        cursor: pointer;
+        padding: 1rem;
+        background: var(--color-theme-500);
+        border-radius: 0.25rem;
+        margin-bottom: 1rem;
+        border: none;
+      }
+    }
+
+    [data-slot="button"] {
+      border: solid 1px var(--color-theme-500);
+      display: flex;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      padding: 1rem;
+      &:hover {
+        background: var(--color-theme-700);
+      }
+      svg {
+        width: 30px;
+      }
+      &.absolute.top-0.right-0 {
+        background: transparent;
+        padding: 0.25rem;
+        right: 0.25rem;
+        top: 0.25rem;
+      }
+    }
+    [data-slot="card-footer"] {
+      margin-top: 1rem;
+      button {
+        padding: 0.25rem 0.5rem;
+      }
+    }
+    .text-foreground.underline {
+      button {
+        background: transparent;
+        border: none;
+        color: var(--color-theme-300);
+        padding: 0.25rem 0.5rem;
+        &:hover {
+          color: var(--color-theme-100);
+        }
+      }
+    }
+    .flex-shrink-0.text-muted-foreground.text-sm {
+      margin: 0.5rem 0rem;
+    }
+
+    [data-slot="form-item"] {
+      margin-bottom: 1rem;
+      a {
+        color: var(--color-theme-300);
+        &:hover {
+          color: var(--color-white);
+        }
+      }
+      [data-slot="form-label"] {
+        flex-grow: 1;
+      }
+      input {
+        background: var(--color-theme-800);
+        padding: 0.5rem;
+        border: solid 1px var(--color-theme-700);
+        border-radius: 0.25rem;
+        &:focus {
+          color: var(--color-white);
+          outline: solid 1px var(--color-brand-400);
+        }
+      }
+    }
+  }
+}

@@ -9,22 +9,37 @@
     "start": "next start",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "format": "npx prettier --write .",
+    "format:check": "npx prettier --check .",
+    "db:generate": "drizzle-kit generate --dialect=postgresql --schema=db/schema.ts --out=./drizzle",
+    "db:migrate": "tsx ./drizzle/migrate.ts",
+    "db:seed": "tsx ./drizzle/seed.ts"
   },
   "dependencies": {
+    "@neondatabase/auth": "^0.4.2-beta",
+    "@neondatabase/auth-ui": "^0.2.1-beta",
+    "@neondatabase/serverless": "^1.1.0",
+    "@siberiacancode/reactuse": "^1.0.10",
+    "drizzle-orm": "^0.45.2",
     "next": "16.2.10",
-    "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "react-icons": "^5.7.0"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
+    "@next/eslint-plugin-next": "^16.2.10",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^20.19.43",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "dotenv": "^17.4.2",
+    "drizzle-kit": "^0.31.10",
+    "eslint": "^9.39.5",
     "eslint-config-next": "16.2.10",
-    "tailwindcss": "^4",
-    "typescript": "^5",
-    "husky": "^9.1.7"
+    "eslint-config-prettier": "^10.1.8",
+    "husky": "^9.1.7",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.9.3"
   }
 }
