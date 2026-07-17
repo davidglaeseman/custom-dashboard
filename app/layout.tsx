@@ -7,6 +7,8 @@ import LeftNavigation from "@/components/LeftNavigation";
 import "@/css/globals.css";
 import { getUserAuth } from "@/app/actions";
 
+export const dynamic = "force-dynamic";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],

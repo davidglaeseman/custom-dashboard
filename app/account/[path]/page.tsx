@@ -4,10 +4,7 @@ import PageLinkBack from "@/components/PageLinkBack";
 
 const validRoutes = ["security", "profile"];
 
-export const dynamicParams = true;
-export function generateStaticParams() {
-  return ["security", "profile"].map((path) => ({ path }));
-}
+export const dynamic = "force-dynamic";
 export default async function AccountPage({
   params,
 }: {
