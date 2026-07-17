@@ -1,8 +1,9 @@
 "use client";
-import { useClickOutside, useDisclosure } from "@siberiacancode/reactuse";
+import { useClickOutside } from "@siberiacancode/reactuse";
 import { AuthUser, signOutUser } from "@/app/actions";
 import { LuChevronDown, LuChevronUp } from "react-icons/lu";
 import Link from "next/link";
+import { useRef, useState } from "react";
 const userLinks = [
   { label: "Account", url: "/account" },
   { label: "Profile", url: "/account/profile" },
@@ -10,19 +11,30 @@ const userLinks = [
 ];
 
 export default function UserDropdown({ user }: { user: AuthUser }) {
-  const dropdownMenu = useDisclosure();
-  const ref = useClickOutside<HTMLDivElement>(() => dropdownMenu.close());
+  const [open, setOpen] = useState<boolean>(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useClickOutside(ref, () => {
+    if (open) {
+      setOpen(() => false);
+    }
+  });
+  const toggleDropdown = () => {
+    setOpen((value) => !value);
+  };
   return (
     <div ref={ref}>
       <button
-        className={`flex items-center rounded px-2 gap-2 py-2 cursor-pointer ${dropdownMenu.opened ? "bg-theme-500" : "bg-theme-600"}`}
-        onClick={() => dropdownMenu.toggle()}
+        className={`flex items-center rounded px-2 gap-2 py-2 cursor-pointer ${open ? "bg-theme-700" : "bg-theme-700/50"}`}
+        onClick={toggleDropdown}
       >
         <span>{user.name}</span>
-        {dropdownMenu.opened ? <LuChevronDown /> : <LuChevronUp />}
+        <span className="pointer-events-none">
+          {open ? <LuChevronDown /> : <LuChevronUp />}
+        </span>
       </button>
       <div
-        className={`absolute border border-theme-500 right-[24px] p-4 top-[58px] text-sm rounded bg-theme-700 ${dropdownMenu.opened ? "block" : "hidden"}`}
+        className={`absolute border border-theme-500 right-[24px] ring-2 ring-black/20 p-2 top-[58px] text-sm rounded bg-theme-700 ${open ? "block" : "hidden"}`}
       >
         <div>
           <div className="text-xl">{user.name}</div>

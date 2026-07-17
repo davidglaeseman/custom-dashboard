@@ -20,11 +20,11 @@ export const signOutUser = async () => {
 
 export const getUser = async () => getAuthUser();
 
-export const getUserAuth = async (): Promise<AuthUser | false> => {
+export const getUserAuth = async (): Promise<AuthUser> => {
   try {
     return await getAuthUser();
   } catch {
-    return false;
+    return {} as AuthUser;
   }
 };
 

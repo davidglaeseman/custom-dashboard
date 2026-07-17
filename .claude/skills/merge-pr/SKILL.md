@@ -25,7 +25,7 @@ Trigger this skill to clean up a PR branch by running `/merge-pr <pr_number>`.
 
 - Use the PR title as the primary commit message.
 - Include relevant context from the PR description in the commit body if it adds clarity.
-- Do NOT include testing plan or "What Changed" lists in the commit message — the commit message should explain the *why* and *what* concisely.
+- Do NOT include testing plan or "What Changed" lists in the commit message — the commit message should explain the _why_ and _what_ concisely.
 - Always ask for confirmation before pushing.
 - Use force push only if rebasing has changed the history.
 - Ensure the final commit message follows Conventional Commits format.
@@ -36,6 +36,7 @@ Trigger this skill to clean up a PR branch by running `/merge-pr <pr_number>`.
 PR Title: `feat: add authentication and component structure`
 
 Resulting commit message:
+
 ```
 feat: add authentication and component structure
 
