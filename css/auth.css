@@ -94,3 +94,32 @@
     }
   }
 }
+
+.ai-box {
+  position: relative;
+}
+.ai-box:after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  content: "";
+  background-color: #11111c;
+  border-radius: 1rem;
+  animation: pulse-glow 2s infinite ease-in-out;
+}
+
+/* The Animation */
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 15px 0 var(--color-theme-500);
+  }
+  50% {
+    box-shadow: 0 0 10px 10px var(--color-brand); /* Makes the glow bigger and brighter */
+  }
+  100% {
+    box-shadow: 0 0 15px 0 var(--color-theme-700);
+  }
+}

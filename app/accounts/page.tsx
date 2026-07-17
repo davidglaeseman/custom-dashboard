@@ -1,9 +1,10 @@
 import PageCard from "@/components/PageCard";
 
-export default function Page() {
+export default function TaskPage() {
   return (
     <PageCard>
-      <h1>Account</h1>
+      <h1>Accounts</h1>
+      <div>xxxx</div>
     </PageCard>
   );
 }

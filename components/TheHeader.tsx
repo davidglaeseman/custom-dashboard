@@ -1,9 +1,9 @@
 "use client";
 import { AuthUser } from "@/app/actions";
 import Link from "next/link";
-import UserDropdown from "@/app/components/UserDropdown";
-import { COMPANY_NAME } from "@/app/lib";
+import UserDropdown from "@/components/UserDropdown";
 import { usePathname } from "next/navigation";
+import Logo from "@/components/Logo";
 
 const NotLoggedInButtons = () => {
   const pathname = usePathname();
@@ -31,15 +31,17 @@ const NotLoggedInButtons = () => {
   );
 };
 
-export default function TheHeader({ user }: { user: AuthUser | false }) {
+export default function TheHeader({ user }: { user: AuthUser }) {
+  const isLoggedIn = !!user?.email;
   return (
-    <header className="h-[50px] bg-theme-700 z-30 fixed top-0 left-0 w-full flex gap-2 px-2 items-center">
-      <div className="grow">
-        <Link className="font-bold p-2" href="/">
-          {COMPANY_NAME}
-        </Link>
+    <header className="h-[50px] z-30 fixed top-0 left-0 w-full pl-2 md:pl-52 flex gap-2 px-2 items-center">
+      <div className="grow flex items-center gap-2">
+        <div className="block md:hidden">
+          <Logo />
+        </div>
+        <div>search</div>
       </div>
-      {user ? <UserDropdown user={user} /> : <NotLoggedInButtons />}
+      {isLoggedIn ? <UserDropdown user={user} /> : <NotLoggedInButtons />}
     </header>
   );
 }
