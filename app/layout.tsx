@@ -47,7 +47,7 @@ export default async function RootLayout({
             <TheHeader user={user} />
             <LeftNavigation user={user} />
             <main className="pl-0 md:pl-[calc(200px+1rem)] transition-all  h-[calc(100vh-50px)] overflow-y-auto scrollbar-gutter-stable">
-              <div className="p-2 h-full">{children}</div>
+              <div className="py-2 px-4 md:px-2 h-full">{children}</div>
             </main>
           </div>
         </NeonAuthUIProvider>

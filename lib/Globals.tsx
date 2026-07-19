@@ -1,3 +1,9 @@
+import { PiBank } from "react-icons/pi";
+import { LuCheck } from "react-icons/lu";
+import { LuHouse } from "react-icons/lu";
+import { LuArrowRightLeft } from "react-icons/lu";
+import { LuCreditCard } from "react-icons/lu";
+import { BiPaperPlane } from "react-icons/bi";
 export const COMPANY_NAME = "Company Name";
 
 export type LinkBlockType = {
@@ -9,15 +15,15 @@ export type LinkBlockType = {
 };
 
 export const leftLinksTop = [
-  { label: "Home", url: "/", icon: "home", auth: false },
-  { label: "Tasks", url: "/tasks", icon: "checkmark", auth: true },
+  { label: "Home", url: "/", icon: <LuHouse />, auth: false },
+  { label: "Tasks", url: "/tasks", icon: <LuCheck />, auth: true },
 ];
 
 export const leftLinksSub: LinkBlockType[] = [
   {
     label: "Accounts",
     url: "/accounts",
-    icon: "bank",
+    icon: <PiBank />,
     auth: true,
     children: [
       { label: "Checking", url: "/accounts/checking", auth: true },
@@ -28,13 +34,13 @@ export const leftLinksSub: LinkBlockType[] = [
   {
     label: "Transactions",
     url: "/transactions",
-    icon: "checkmark",
+    icon: <LuArrowRightLeft />,
     auth: true,
   },
   {
     label: "Cards",
     url: "/cards",
-    icon: "credit-card",
+    icon: <LuCreditCard />,
     auth: true,
     children: [
       { label: "Credit", url: "/cards/credit", auth: true },
@@ -44,7 +50,7 @@ export const leftLinksSub: LinkBlockType[] = [
   {
     label: "Payments",
     url: "/payments",
-    icon: "airplane",
+    icon: <BiPaperPlane />,
     auth: true,
     children: [
       { label: "Bill Pay", url: "/payments/bill-pay", auth: true },
@@ -60,4 +66,4 @@ export const leftLinksSub: LinkBlockType[] = [
   },
 ];
 
-export const leftLinks = [leftLinksTop, leftLinksSub];
+export const globals = [leftLinksTop, leftLinksSub];

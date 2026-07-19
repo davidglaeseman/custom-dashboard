@@ -1,4 +1,4 @@
-import { COMPANY_NAME } from "@/lib/links";
+import { COMPANY_NAME } from "@/lib/Globals";
 import Link from "next/link";
 
 export default function Logo() {

@@ -27,7 +27,7 @@
     form {
       [data-slot="button"] {
         cursor: pointer;
-        padding: 1rem;
+        padding: 0.5rem;
         background: var(--color-theme-500);
         border-radius: 0.25rem;
         margin-bottom: 1rem;
@@ -40,7 +40,7 @@
       display: flex;
       border-radius: 0.25rem;
       cursor: pointer;
-      padding: 1rem;
+      padding: 0.5rem;
       &:hover {
         background: var(--color-theme-700);
       }
@@ -88,7 +88,7 @@
       }
       input {
         background: var(--color-theme-800);
-        padding: 0.5rem;
+        padding: 0.25rem 0.5rem;
         border: solid 1px var(--color-theme-700);
         border-radius: 0.25rem;
         &:focus {

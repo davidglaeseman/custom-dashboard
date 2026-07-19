@@ -12,6 +12,7 @@
     "type-check": "tsc --noEmit",
     "format": "npx prettier --write .",
     "format:check": "npx prettier --check .",
+    "cleanup": "yarn lint:fix && yarn format && yarn type-check",
     "db:generate": "drizzle-kit generate --dialect=postgresql --schema=db/schema.ts --out=./drizzle",
     "db:migrate": "tsx ./drizzle/migrate.ts",
     "db:seed": "tsx ./drizzle/seed.ts"

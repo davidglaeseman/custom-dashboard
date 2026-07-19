@@ -1,4 +1,4 @@
-import { COMPANY_NAME } from "@/lib/links";
+import { COMPANY_NAME } from "@/lib/Globals";
 export default function LoggedOutSplash() {
   return (
     <div>

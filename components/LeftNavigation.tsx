@@ -2,7 +2,6 @@
 import { LuMenu } from "react-icons/lu";
 import { useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { leftLinks, LinkBlockType } from "@/lib/links";
 import LinkBlock from "@/components/LinkBlock";
 import { AuthUser } from "@/app/actions";
 import Logo from "@/components/Logo";
@@ -12,6 +11,7 @@ import ModalTrigger from "@/components/ModalTrigger";
 import HelpModal from "@/components/HelpModal";
 import { useClickOutside } from "@siberiacancode/reactuse";
 import Modal from "@/components/Modal";
+import { globals, type LinkBlockType } from "@/lib/Globals";
 
 function filterLinksByAuth(
   links: LinkBlockType[],
@@ -38,7 +38,7 @@ export default function LeftNavigation({ user }: { user: AuthUser }) {
   const [leftNavOpen, setLeftNavOpen] = useState<boolean>(false);
   const searchParams = useSearchParams();
   const isLoggedIn = !!user?.id;
-  const filteredLeftLinks = leftLinks
+  const filteredLeftLinks = globals
     .map((links) => filterLinksByAuth(links, isLoggedIn))
     .filter((links) => links.length > 0);
   const isModalOpen = searchParams.get("modal") !== null;
@@ -51,7 +51,7 @@ export default function LeftNavigation({ user }: { user: AuthUser }) {
   return (
     <div ref={ref}>
       <div
-        className={`w-50 min-w-50 p-2 z-30 ${leftNavOpen ? "left-0" : "-left-50"} md:left-0 transition-all flex flex-col fixed  top-0 h-full bg-theme-900/90 backdrop-blur-xs border-r border-theme-700`}
+        className={`w-50 min-w-50 p-2 z-30 ${leftNavOpen ? "left-0" : "-left-50"} md:left-0 transition-all flex flex-col fixed  top-0 h-full bg-theme-900/80 backdrop-blur-xs border-r border-theme-700`}
       >
         <div className="grow">
           <div>

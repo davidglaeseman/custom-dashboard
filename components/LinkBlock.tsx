@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { LinkBlockType } from "@/lib/links";
+import type { LinkBlockType } from "@/lib/Globals";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 export default function LinkBlock({ links }: { links: LinkBlockType[] }) {
@@ -15,9 +15,16 @@ export default function LinkBlock({ links }: { links: LinkBlockType[] }) {
       {links.map((link, index) => (
         <li key={index} className="mb-2">
           <Link
-            className={`text-zinc-300 hover:bg-theme-800 rounded-md block py-1 px-2 hover:text-white ${pathname === link.url ? "bg-theme-800 text-white" : ""}`}
+            className={`text-zinc-300 hover:bg-theme-800 rounded-md flex gap-2 items-center py-1 px-2 hover:text-white ${pathname === link.url ? "bg-theme-800 text-white" : ""} ${pathname.includes(link.url) && link.url !== "/" ? "ring ring-theme-700" : ""}`}
             href={link.url}
           >
+            {link?.icon && (
+              <span
+                className={`p-0.5 flex items-center justify-center ${pathname.includes(link.url) && link.url !== "/" ? "text-brand-400" : ""}`}
+              >
+                {link.icon}
+              </span>
+            )}
             {link.label}
           </Link>
           {pathNameBase === link.url &&

@@ -45,9 +45,9 @@ export default function UserDropdown({ user }: { user: AuthUser }) {
         <div className="border-b border-theme-400  my-2" />
         <ul>
           {userLinks.map((link) => (
-            <li key={link.url}>
+            <li className="mb-1" key={link.url}>
               <Link
-                className={`block p-2 hover:bg-theme-600 rounded ${pathname === link.url ? "bg-theme-600" : ""}`}
+                className={`block p-1 hover:bg-theme-600 rounded ${pathname === link.url ? "bg-theme-600" : ""}`}
                 href={link.url}
               >
                 {link.label}
