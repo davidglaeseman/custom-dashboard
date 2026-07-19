@@ -2,7 +2,7 @@
   .relative {
     position: relative;
   }
-  .text-destructive.text-sm{
+  .text-destructive.text-sm {
     color: var(--color-red-500);
     font-size: var(--text-xs);
   }

@@ -4,7 +4,7 @@ import { AuthUser, signOutUser } from "@/app/actions";
 import { LuChevronDown, LuChevronUp } from "react-icons/lu";
 import Link from "next/link";
 import { useRef, useState } from "react";
-import {usePathname} from "next/navigation";
+import { usePathname } from "next/navigation";
 const userLinks = [
   { label: "Account", url: "/account" },
   { label: "Profile", url: "/account/profile" },

@@ -4,7 +4,7 @@ import { useCallback } from "react";
 
 export default function ModalTrigger({
   children,
-    name,
+  name,
 }: {
   children: React.ReactNode;
   name: string;

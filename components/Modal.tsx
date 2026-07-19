@@ -6,7 +6,13 @@ import TheButton from "@/components/TheButton";
 import { LuX } from "react-icons/lu";
 import { useKeyPress } from "@siberiacancode/reactuse";
 
-export default function Modal({ children, name }: { children: React.ReactNode, name: string }) {
+export default function Modal({
+  children,
+  name,
+}: {
+  children: React.ReactNode;
+  name: string;
+}) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [portalRoot, setPortalRoot] = useState<HTMLElement | null>(null);

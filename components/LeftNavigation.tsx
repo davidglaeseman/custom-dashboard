@@ -67,9 +67,9 @@ export default function LeftNavigation({ user }: { user: AuthUser }) {
               <LuBadgeHelp size={30} /> <span>Help</span>
             </TheButton>
           </ModalTrigger>
-        <Modal name="help-modal">
+          <Modal name="help-modal">
             <HelpModal />
-        </Modal>
+          </Modal>
         </div>
       </div>
       <button
