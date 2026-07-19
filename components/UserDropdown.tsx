@@ -4,6 +4,7 @@ import { AuthUser, signOutUser } from "@/app/actions";
 import { LuChevronDown, LuChevronUp } from "react-icons/lu";
 import Link from "next/link";
 import { useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 const userLinks = [
   { label: "Account", url: "/account" },
   { label: "Profile", url: "/account/profile" },
@@ -11,6 +12,7 @@ const userLinks = [
 ];
 
 export default function UserDropdown({ user }: { user: AuthUser }) {
+  const pathname = usePathname();
   const [open, setOpen] = useState<boolean>(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -45,7 +47,7 @@ export default function UserDropdown({ user }: { user: AuthUser }) {
           {userLinks.map((link) => (
             <li key={link.url}>
               <Link
-                className="block p-2 hover:bg-theme-600 rounded"
+                className={`block p-2 hover:bg-theme-600 rounded ${pathname === link.url ? "bg-theme-600" : ""}`}
                 href={link.url}
               >
                 {link.label}

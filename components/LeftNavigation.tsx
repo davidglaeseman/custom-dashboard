@@ -1,6 +1,7 @@
 "use client";
 import { LuMenu } from "react-icons/lu";
 import { useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { leftLinks, LinkBlockType } from "@/lib/links";
 import LinkBlock from "@/components/LinkBlock";
 import { AuthUser } from "@/app/actions";
@@ -10,6 +11,7 @@ import TheButton from "@/components/TheButton";
 import ModalTrigger from "@/components/ModalTrigger";
 import HelpModal from "@/components/HelpModal";
 import { useClickOutside } from "@siberiacancode/reactuse";
+import Modal from "@/components/Modal";
 
 function filterLinksByAuth(
   links: LinkBlockType[],
@@ -34,12 +36,16 @@ function filterLinksByAuth(
 export default function LeftNavigation({ user }: { user: AuthUser }) {
   const ref = useRef<HTMLDivElement>(null);
   const [leftNavOpen, setLeftNavOpen] = useState<boolean>(false);
+  const searchParams = useSearchParams();
   const isLoggedIn = !!user?.id;
   const filteredLeftLinks = leftLinks
     .map((links) => filterLinksByAuth(links, isLoggedIn))
     .filter((links) => links.length > 0);
+  const isModalOpen = searchParams.get("modal") !== null;
   useClickOutside(ref, () => {
-    setLeftNavOpen(false);
+    if (!isModalOpen) {
+      setLeftNavOpen(false);
+    }
   });
 
   return (
@@ -56,12 +62,14 @@ export default function LeftNavigation({ user }: { user: AuthUser }) {
           ))}
         </div>
         <div className={`mb-12 md:mb-0 ${leftNavOpen ? "" : ""}`}>
-          <ModalTrigger>
+          <ModalTrigger name="help-modal">
             <TheButton className="bg-theme-700 hover:bg-theme-600 cursor-pointer w-full flex items-center p-2 rounded-md gap-4">
               <LuBadgeHelp size={30} /> <span>Help</span>
             </TheButton>
           </ModalTrigger>
-          <HelpModal />
+          <Modal name="help-modal">
+            <HelpModal />
+          </Modal>
         </div>
       </div>
       <button

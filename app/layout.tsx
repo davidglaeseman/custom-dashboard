@@ -46,7 +46,7 @@ export default async function RootLayout({
           <div className="application bg-linear-to-b   from-theme-900/70 to-theme-800/50 bg-fixed  pt-[50px]">
             <TheHeader user={user} />
             <LeftNavigation user={user} />
-            <main className="pl-0 md:pl-[200px] transition-all  h-[calc(100vh-50px)] overflow-y-auto scrollbar-gutter-stable">
+            <main className="pl-0 md:pl-[calc(200px+1rem)] transition-all  h-[calc(100vh-50px)] overflow-y-auto scrollbar-gutter-stable">
               <div className="p-2 h-full">{children}</div>
             </main>
           </div>

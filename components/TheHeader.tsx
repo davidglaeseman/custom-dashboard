@@ -4,6 +4,7 @@ import Link from "next/link";
 import UserDropdown from "@/components/UserDropdown";
 import { usePathname } from "next/navigation";
 import Logo from "@/components/Logo";
+import SearchWindow from "@/components/SearchWindow";
 
 const NotLoggedInButtons = () => {
   const pathname = usePathname();
@@ -20,7 +21,7 @@ const NotLoggedInButtons = () => {
       {links.map((link) => (
         <li key={link.url}>
           <Link
-            className={` block py-1 px-2 rounded ${link.active ? "bg-brand" : "bg-theme-500 hover:bg-theme-600"}`}
+            className={` block py-1 px-3 rounded-full ${link.active ? "bg-brand" : "bg-theme-500 hover:bg-theme-600"}`}
             href={link.url}
           >
             {link.label}
@@ -39,7 +40,7 @@ export default function TheHeader({ user }: { user: AuthUser }) {
         <div className="block md:hidden">
           <Logo />
         </div>
-        <div>search</div>
+        <SearchWindow />
       </div>
       {isLoggedIn ? <UserDropdown user={user} /> : <NotLoggedInButtons />}
     </header>
