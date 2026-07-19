@@ -4,7 +4,9 @@ export default function TaskPage() {
   return (
     <PageCard>
       <h1>Accounts</h1>
-      <div>xxxx</div>
+      <div>
+          Accounts Table
+      </div>
     </PageCard>
   );
 }

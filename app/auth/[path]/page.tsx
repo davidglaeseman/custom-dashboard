@@ -8,8 +8,8 @@ export default async function AuthPage({
 }) {
   const { path } = await params;
   return (
-    <div className="flex items-center justify-center h-full mx-auto | auth-container">
-      <div className="ai-box">
+    <div className="flex  justify-center  mx-auto pt-0  md:pt-6 ">
+      <div className="ai-box auth-container w-[300px] md:w-[400px]">
         <AuthView path={path} />
       </div>
     </div>

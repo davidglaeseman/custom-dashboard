@@ -2,8 +2,13 @@
   .relative {
     position: relative;
   }
-  max-width: 400px;
+  .text-destructive.text-sm{
+    color: var(--color-red-500);
+    font-size: var(--text-xs);
+  }
   .bg-card {
+    width: 100%;
+    max-width: 400px;
     background: rgb(0 0 0 / 0.5);
     color: var(--color-white);
     padding: 1rem;
